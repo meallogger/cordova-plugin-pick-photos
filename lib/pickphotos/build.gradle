@@ -1,0 +1,11 @@
+
+repositories {
+  maven {
+    url "http://dl.bintray.com/santervo/maven"
+  }
+}
+
+dependencies {
+  compile "com.meallogger:pickphotos:1.0.0.1"
+}
+

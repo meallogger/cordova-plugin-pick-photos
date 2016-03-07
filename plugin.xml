@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-pick-photos"
+  version="0.1">
+  <name>Pick Photos</name>
+  <description>Cordova Pick Photos Plugin</description>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="PickPhotos">
+        <param name="android-package" value="com.meallogger.cordova.pickphotos.PickPhotos"/>
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="me.crosswall.photo.pick.PickPhotosActiviy" />
+    </config-file>
+    <js-module src="www/pick-photos.js" name="PickPhotos">
+      <clobbers target="pickPhotos" />
+    </js-module>
+    <source-file src="src/android/PickPhotos.java" target-dir="src/com/meallogger/cordova/pickphotos" />
+    <framework src="lib/pickphotos/build.gradle" custom="true" type="gradleReference"/>
+    <framework src="com.android.support:appcompat-v7:23+" />
+  </platform>
+</plugin>
